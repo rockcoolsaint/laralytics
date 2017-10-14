@@ -1,0 +1,57 @@
+.bg-white {
+	background-color: #ffffff;
+}
+
+.box-margin {
+	margin: 10px 0;
+}
+
+.petrol {
+	color: #cc0066;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.diesel {
+	color: #ff9900;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.kerosene {
+	color: #00802b;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.pdt-text {
+	margin-bottom: 5px;
+}
+
+hr {
+	margin: 0;
+	color: #efefef;
+}
+
+.purple-text {
+	color: #cc0066;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.purple {
+	color: #cc0066;
+}
+
+.orange {
+	color: #ff9900;
+}
+
+.green {
+	color: #00802b;
+}
+
+div h3.green {
+	margin: 5px 0;
+}
+
