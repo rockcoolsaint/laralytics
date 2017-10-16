@@ -29,7 +29,7 @@
     @endif
 	<!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-6 hidden-xs">
           <!-- small box -->
           <div class="box-body box-margin bg-white">
             <div><h4><strong>Petrol</strong></h4></div>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-6 hidden-xs">
           <!-- small box -->
           <div class="box-body box-margin bg-white">
             <div><h4><strong>Diesel</strong></h4></div>
@@ -67,7 +67,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-6 hidden-xs">
           <!-- small box -->
           <div class="box-body box-margin bg-white">
             <div><h4><strong>Kerosene</strong></h4></div>
@@ -86,6 +86,79 @@
           </div>
         </div>
         <!-- ./col -->
+
+        <div class="col-xs-12 hidden-lg hidden-md">
+          <!-- small box -->
+          <div class="box-body box-margin bg-white">
+            <table class="table text-right">
+              <thead>
+                <tr>
+                  <th class="text-right">Volume</th>
+                  <th class="text-right"></th>
+                  <th class="text-right">Days to Reorder</th>
+                  <th class="text-right">Days to Dead Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Petrol</td>
+                  <td>41,208</td>
+                  <td>7</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>Diesel</td>
+                  <td>35,615</td>
+                  <td>10</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>Kerosene</td>
+                  <td>9,994</td>
+                  <td>3,866</td>
+                  <td>4,508</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- small box -->
+          <div class="box-body box-margin bg-white">
+            <h4>Volume Sold Month To Date</h4>
+            <div class="vol-sold">
+              <div class="text-center">
+                <span>Petrol</span>
+                <h3>85,488.00</h3>
+              </div>
+              <div class="text-center">
+                <span>Diesel</span>
+                <h3>18,914.00</h3>
+              </div>
+              <div class="kero text-center">
+                <span>Kerosene</span>
+                <h3>913.00</h3>
+              </div>
+            </div>
+
+            <hr>
+
+            <h4>Volume Sold Year To Date</h4>
+            <div class="vol-sold">
+              <div>
+                <span>Petrol</span>
+                <h3>85,488.00</h3>
+              </div>
+              <div>
+                <span>Diesel</span>
+                <h3>18,914.00</h3>
+              </div>
+              <div class="kero">
+                <span>Kerosene</span>
+                <h3>913.00</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.row -->
 
@@ -93,19 +166,19 @@
       <div class="row">
         <!--masonry-->
         <div class="grid">
-        <div class="col-lg-12 col-xs-12">
-          <div class="box-header bg-white">
-            <h3 class="box-title">OVERVIEW: Today</h3>
-            <button type="button" class="btn btn-box-tool pull-right" data-toggle="collapse" data-target="#overviewToday" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
+          <div class="col-lg-12 col-xs-12">
+            <div class="box-header bg-white">
+              <h3 class="box-title">OVERVIEW: Today</h3>
+              <button type="button" class="btn btn-box-tool pull-right" data-toggle="collapse" data-target="#overviewToday" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
           </div>
-        </div>
         </div>
 
         <div class="collapse in" id="overviewToday">
-          <div class="col-lg-4 col-xs-12">
+          <div class="col-lg-4 col-xs-12 hidden-xs">
             <!-- small box -->
-            <div class=" box-body box-margin bg-white">
+            <div class="box-body box-margin bg-white">
               <h4>Volume</h4>
               <p>Sold from Pumps (Ltrs) <span class="purple-text">30,035.97</span></p>
               <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
@@ -131,7 +204,24 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-xs-12">
+          <!--mobile view-->
+          <div class="col-xs-12 hidden-md hidden-lg">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white text-center">
+              <p><strong>Volume Sold from Pumps (Ltrs)</strong></p>
+              <h3 class="orange"><strong>30,035.97</strong></h3>
+            </div>
+          </div>
+
+          <div class="col-xs-12 hidden-md hidden-lg">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white text-center">
+              <p><strong>Volume Taken from Tanks (Ltrs)</strong></p>
+              <h3 class="orange"><strong>29,853.00</strong></h3>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-xs-12 hidden-xs">
             <!-- small box -->
             <div class="box-body box-margin bg-white">
               <p><strong>Value of Consumption from Tanks</strong></p>
@@ -151,34 +241,60 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-xs-6">
+          <!--mobile view-->
+          <div class="col-xs-12 hidden-md hidden-lg text-center">
             <!-- small box -->
             <div class="box-body box-margin bg-white">
-              <h5><strong>Volume Taken Vs Daily Target</strong></h5>
-              <div class="text-center">
-                <hr>
-                <p><strong>Volume Taken</strong></p>
-                <h3 class="green"><strong>30K</strong></h3>
-                <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
+              <p><strong>Expected Revenue for Sales</strong></p>
+              <h3 class="orange"><strong>₦4,591,391.25</strong></h3>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <p><strong>Value of Consumption from Tanks</strong></p>
+              <h3 class="orange"><strong>₦4,559,495.25</strong></h3>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white hidden-md hidden-lg">
+              <h4>Tolerance</h4>
+              <div class="row">
+                <div class="col-xs-4 text-center">
+                  <div>Petrol</div>
+                  <h3 class="orange"><strong>20.06</strong></h3>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <div>Diesel</div>
+                  <h3 class="orange"><strong>20.44</strong></h3>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <div>Kerosene</div>
+                  <h3 class="orange"><strong>20.73</strong></h3>
+                </div>
               </div>
             </div>
 
             <!-- small box -->
             <div class="box-body box-margin bg-white">
-              <h4>Tolerance</h4>
-              <div class="row">
-                <div class="col-lg-4 col-xs-6">
-                  <div>Petrol</div>
-                  <h3>20.06</h3>
-                </div>
-                <div class="col-lg-4 col-xs-6">
-                  <div>Diesel</div>
-                  <h3>20.44</h3>
-                </div>
-                <div class="col-lg-4 col-xs-6">
-                  <div>Kerosene</div>
-                  <h3>20.73</h3>
-                </div>
+              <p><strong>Tolerance Related Extra</strong></p>
+              <h3 class="green"><strong>₦31,896.25</strong></h3>
+            </div>
+          </div>
+          <!--mobile view-->
+
+          <div class="col-lg-4 col-xs-12">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <h5 class="vol-taken"><strong>Volume Taken Vs Daily Target</strong></h5>
+              <div class="text-center">
+                <hr>
+                <p><strong>Volume Taken</strong></p>
+                <h3 class="green"><strong>30K</strong></h3>
+                <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
+                <hr>
+                <p>Daily Target <span class="sky-blue"><strong>20K</strong></span></p>
+                <p class="hyphen text-center"><i class="fa fa-minus"></i></p>
+                <hr>
               </div>
             </div>
           </div>
@@ -189,21 +305,21 @@
       <div class="row">
         <!--masonry-->
         <div class="grid">
-        <div class="col-lg-12 col-xs-12">
-          <div class="box-margin box-header bg-white" data-target="#overviewYesterday">
-            <h3 class="box-title">OVERVIEW: Yesterday</h3>
-            <button type="button" class="btn btn-box-tool box-tools pull-right" data-toggle="collapse" data-target="#overviewYesterday" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
+          <div class="col-lg-12 col-xs-12">
+            <div class="box-header bg-white">
+              <h3 class="box-title">OVERVIEW: YESTERDAY</h3>
+              <button type="button" class="btn btn-box-tool pull-right" data-toggle="collapse" data-target="#overviewYesterday" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
           </div>
-        </div>
         </div>
 
         <div class="collapse in" id="overviewYesterday">
-           <div class="col-lg-4 col-xs-6">
+          <div class="col-lg-4 col-xs-12 hidden-xs">
             <!-- small box -->
             <div class="box-body box-margin bg-white">
               <h4>Volume</h4>
-              <p>Sold from Pumps (Ltrs) <span>30,035.97</span></p>
+              <p>Sold from Pumps (Ltrs) <span class="purple-text">30,035.97</span></p>
               <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
             </div>
 
@@ -211,74 +327,113 @@
             <div class="box-body box-margin bg-white">
               <h4>Tolerance</h4>
               <div class="row">
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-4 col-xs-12">
                   <div>Petrol</div>
-                  <h3>20.06</h3>
+                  <h3 class="purple">20.06</h3>
                 </div>
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-4 col-xs-12">
                   <div>Diesel</div>
-                  <h3>20.44</h3>
+                  <h3 class="purple">20.44</h3>
                 </div>
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-4 col-xs-12">
                   <div>Kerosene</div>
-                  <h3>20.73</h3>
+                  <h3 class="purple">20.73</h3>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-xs-6">
+          <!--mobile view-->
+          <div class="col-xs-12 hidden-md hidden-lg">
             <!-- small box -->
-            <div class="box-body box-margin bg-white">
-              <h4>Volume</h4>
-              <p>Sold from Pumps (Ltrs) <span>30,035.97</span></p>
-              <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
-            </div>
-
-            <!-- small box -->
-            <div class="box-body box-margin bg-white">
-              <h4>Tolerance</h4>
-              <div class="row">
-                <div class="col-lg-4 col-xs-6">
-                  <div>Petrol</div>
-                  <h3>20.06</h3>
-                </div>
-                <div class="col-lg-4 col-xs-6">
-                  <div>Diesel</div>
-                  <h3>20.44</h3>
-                </div>
-                <div class="col-lg-4 col-xs-6">
-                  <div>Kerosene</div>
-                  <h3>20.73</h3>
-                </div>
-              </div>
+            <div class="box-body box-margin bg-white text-center">
+              <p><strong>Volume Sold from Pumps (Ltrs)</strong></p>
+              <h3 class="orange"><strong>30,035.97</strong></h3>
             </div>
           </div>
 
-          <div class="col-lg-4 col-xs-6">
+          <div class="col-xs-12 hidden-md hidden-lg">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white text-center">
+              <p><strong>Volume Taken from Tanks (Ltrs)</strong></p>
+              <h3 class="orange"><strong>29,853.00</strong></h3>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-xs-12 hidden-xs">
             <!-- small box -->
             <div class="box-body box-margin bg-white">
-              <h4>Volume</h4>
-              <p>Sold from Pumps (Ltrs) <span>30,035.97</span></p>
-              <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
+              <p><strong>Value of Consumption from Tanks</strong></p>
+              <h3 class="green"><strong>₦4,559,495.25</strong></h3>
             </div>
 
             <!-- small box -->
             <div class="box-body box-margin bg-white">
+              <p><strong>Expected Revenue for Sales</strong></p>
+              <h3 class="green"><strong>₦4,591,391.25</strong></h3>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <p><strong>Tolerance Related Extra</strong></p>
+              <h3 class="green"><strong>₦31,896.25</strong></h3>
+            </div>
+          </div>
+
+          <!--mobile view-->
+          <div class="col-xs-12 hidden-md hidden-lg text-center">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <p><strong>Expected Revenue for Sales</strong></p>
+              <h3 class="orange"><strong>₦4,591,391.25</strong></h3>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <p><strong>Value of Consumption from Tanks</strong></p>
+              <h3 class="orange"><strong>₦4,559,495.25</strong></h3>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white hidden-md hidden-lg">
               <h4>Tolerance</h4>
               <div class="row">
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-xs-4 text-center">
                   <div>Petrol</div>
-                  <h3>20.06</h3>
+                  <h3 class="orange"><strong>20.06</strong></h3>
                 </div>
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-xs-4 text-center">
                   <div>Diesel</div>
-                  <h3>20.44</h3>
+                  <h3 class="orange"><strong>20.44</strong></h3>
                 </div>
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-xs-4 text-center">
                   <div>Kerosene</div>
-                  <h3>20.73</h3>
+                  <h3 class="orange"><strong>20.73</strong></h3>
                 </div>
+              </div>
+            </div>
+
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <p><strong>Tolerance Related Extra</strong></p>
+              <h3 class="green"><strong>₦31,896.25</strong></h3>
+            </div>
+          </div>
+          <!--mobile view-->
+
+          <div class="col-lg-4 col-xs-12">
+            <!-- small box -->
+            <div class="box-body box-margin bg-white">
+              <h5 class="vol-taken"><strong>Volume Taken Vs Daily Target</strong></h5>
+              <div class="text-center">
+                <hr>
+                <p><strong>Volume Taken</strong></p>
+                <h3 class="green"><strong>30K</strong></h3>
+                <p>Taken from Tanks (Ltrs) <span>29,853.00</span></p>
+                <hr>
+                <p>Daily Target <span class="sky-blue"><strong>20K</strong></span></p>
+                <p class="hyphen text-center"><i class="fa fa-minus"></i></p>
+                <hr>
               </div>
             </div>
           </div>
@@ -374,23 +529,87 @@
 
       <!--toggleable content-->
       <div class="row">
-        <div class="col-lg-12" data-toggle="collapse" data-target="#productOverview" aria-expanded="false" aria-controls="productOverview">
-          PRODUCT OVERVIEW
+        <!--masonry-->
+        <div class="grid">
+          <div class="col-lg-12 col-xs-12">
+            <div class="box-margin box-header bg-white" data-target="#productOverview">
+              <h3 class="box-title">PRODUCT OVERVIEW</h3>
+              <button type="button" class="btn btn-box-tool box-tools pull-right" data-toggle="collapse" data-target="#productOverview" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="collapse in" id="productOverview">
-          PRODUCT OVERVIEW
+          <!--masonry-->
+          <div class="grid">
+            <div class="col-lg-4">
+              <div class="bg-white box-body box-margin">
+                <h4>Volume Sold</h4>
+                <canvas id="volumeSold" class="hidden-xs" width="400" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="bg-white box-body box-margin">
+                <h4>Revenue</h4>
+                <canvas id="revenue" class="hidden-xs" width="400" height="100"></canvas>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="bg-white box-body box-margin">
+                <h4>Supply</h4>
+                <canvas id="supply" class="hidden-xs" width="400" height="100"></canvas>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!--toggleable content-->
       <div class="row">
-        <div class="col-lg-12" data-toggle="collapse" data-target="#bankOverview" aria-expanded="false" aria-controls="bankOverview">
-          BANK OVERVIEW
+        <div class="grid">
+          <div class="col-lg-12 col-xs-12">
+            <div class="box-margin box-header bg-white" data-target="#bankOverview">
+              <h3 class="box-title">BANK OVERVIEW</h3>
+              <button type="button" class="btn btn-box-tool box-tools pull-right" data-toggle="collapse" data-target="#bankOverview" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="collapse in" id="bankOverview">
-          BANK OVERVIEW
+          <!--masonry-->
+          <div class="grid">
+            <div class="col-lg-4">
+              <div class="bg-white box-body box-margin">
+                <h4>Days With Outstanding Payments</h4>
+                <!--<canvas id="volumeSold" class="hidden-xs" width="400" height="220"></canvas>-->
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="bg-white box-body box-margin">
+                <h4>Reconciliation</h4>
+                <canvas id="revenue" class="hidden-xs" width="400" height="100"></canvas>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="bg-white box-body box-margin">
+                <h4>Incomplete Bank Deposits</h4>
+                <!--<canvas id="volumeSold" class="hidden-xs" width="400" height="220"></canvas>-->
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="bg-white box-body box-margin">
+                <h4>Volume Consumption Trend</h4>
+                <canvas id="supply" class="hidden-xs" width="400" height="100"></canvas>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

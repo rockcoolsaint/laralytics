@@ -51,7 +51,67 @@ hr {
 	color: #00802b;
 }
 
+.sky-blue {
+	color: #4bc0c0;
+}
+
+.hyphen {
+	color: #4bc0c0;
+}
+
 div h3.green {
 	margin: 5px 0;
 }
 
+.bottom-text {
+	vertical-align: text-bottom;
+}
+
+.inline-text {
+	display: inline-block;
+}
+
+.vol-sold div {
+	display: inline-block;
+	border-right: 1px solid #696666;
+	padding: 0 10px;
+}
+
+.vol-sold div.kero {
+	border-right: 0;
+
+}
+
+/*
+ mobile view
+*/
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    /*[class*="col-"] {
+        width: 100%;
+    }*/
+
+    hr {
+		margin: 5px 0;
+	}
+
+	.vol-taken {
+		text-align: center;	
+	}
+    
+}
+
+/*
+ mobile view
+*/
+@media (max-width: @screen-xs-max) {
+    /* For mobile phones: */
+    /*[class*="col-"] {
+        width: 100%;
+    }*/
+
+    hr {
+		margin: 10px 0;
+	}
+    
+}
