@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
 	public function __construct() {
 
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
     public function index() {
@@ -21,7 +21,26 @@ class AdminController extends Controller
     	return view('admin')->with($today);
     }
 
-    public function today() {
-    	return view('analytics.today');
+    public function overview(Request $request) {
+        if ($request->session()->has('username')) {
+            $username = $request->session()->get('username');
+        }
+    	return view('analytics.overview')->with('username', $username);
+    }
+
+    public function stock() {
+        return view('analytics.stock');
+    }
+
+    public function expense() {
+        return view('analytics.expense');
+    }
+
+    public function stock_summary() {
+        return view('analytics.summary.stock');
+    }
+
+    public function expense_summary() {
+        return view('analytics.summary.expense');
     }
 }

@@ -45,8 +45,16 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-line-chart'></i> <span>{{ 'Analytics' }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/today') }}">{{ 'Today Sales' }}</a></li>
-                    <li><a href="#">{{ 'Linklevel2' }}</a></li>
+                    <li><a href="{{ url('/overview') }}">{{ 'Overview' }}</a></li>
+                    <li><a href="{{ url('/stock') }}">{{ 'Stock' }}</a></li>
+                    <li><a href="{{ url('/expense') }}">{{ 'Expense' }}</a></li>
+                    <li class="treeview">
+                        <a href="#"><span>{{ 'Summary' }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ url('/summary/stock') }}">{{ 'Stock' }}</a></li>
+                            <li><a href="{{ url('/summary/expense') }}">{{ 'Executive' }}</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

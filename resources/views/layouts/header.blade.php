@@ -8,7 +8,8 @@
     </a>
 
     <!--visible to Authenticated users-->
-    @if (!Auth::guest())
+    <!--if user is logged in-->
+    
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -215,7 +216,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset('bower_components/AdminLTE/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              <span class="hidden-xs">{{ session('username') }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -265,5 +266,5 @@
         </ul>
       </div>
     </nav>
-    @endif
+    <!--end if user is logged in-->
   </header>

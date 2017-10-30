@@ -15,13 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
-    //return view('admin');
+    return view('admin');
 });
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/today', 'AdminController@today');
+Route::get('/overview', 'AdminController@overview')->name('overview');
+
+Route::get('/stock', 'AdminController@stock');
+
+Route::get('/expense', 'AdminController@expense');
+
+Route::get('/summary/stock', 'AdminController@stock_summary');
+
+Route::get('/summary/expense', 'AdminController@expense_summary');
 
 Route::group(['middleware' => 'auth'], function () {
 	// All routes you need authenticated
@@ -35,5 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Auth::routes();
+
+Route::post('login/custom', 'LoginController@login')->name('login.custom');
 
 Route::get('/home', 'HomeController@index');

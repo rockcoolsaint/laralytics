@@ -1,297 +1,100 @@
-$(document).ready(function(){
-	/**
-	var ctx = $('#myChart').get(0).getContext('2d');
-
-	var data = [
-		{
-			value: 270,
-			color: 'green',
-		},
-		{
-			value: 90,
-			color: 'red',
-		},
-	]
-
-	var Doughnut = new Chart(ctx).Doughnut(data);
-	*/
-
-	//line chart
-	var lineChart = $('#monthlyChart').get(0).getContext('2d');
-
-	var data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        datasets: [
-	        {
-	            label: 'Monthly Comparism',
-	            data: [12, 19, 3, 5, 2, 3],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(75, 192, 192, 0.4)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [5],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        },
-	        {
-	            label: 'Monthly Comparism',
-	            data: [10, 17, 5, 4, 6, 2],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(255, 99, 132, 0.2)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(220,220,220,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        }
-        ]
-    };
-
-    var options = {
-    	scales: {
-    		yAxes: [{
-    			display: true,
-    			ticks: {}
-    		}],
-    		xAxes: [{
-    			display:false,
-    		}]
-    	}
-    }
-
-	var monthlyChart = new Chart(lineChart, {
-	    type: 'line',
-	    data: data,
-	    options: options
-	});
+$(function(){
 
 
-	//bar chart
-	var barChart = $('#revenueChart').get(0).getContext('2d');
+	//Read cookie
+	console.log($.cookie('role'));
+	console.log($.cookie('token'));
+	console.log($.cookie('company'));
+	console.log(JSON.parse($.cookie('company')));
 
-	var data = {
-        labels: ["Station, location", "Station, location", "Station, location", "Station, location", "Station, location", "Station, location"],
-        datasets: [
-	        {
-	            label: 'Monthly Comparism',
-	            backgroundColor: 'rgba(75, 192, 192, 0.4)',
-	            data: [12, 19, 3, 5, 2, 3],
-	        },
-	        /**
-	        {
-	            label: 'Monthly Comparism',
-	            data: [10, 17, 5, 4, 6, 2],
-	        }
-	        */
-        ]
-    };
 
-    var options = {
-    	scales: {
-    		yAxes: [{
-    			display: true,
-    			ticks: {}
-    		}],
-    		xAxes: [{
-    			display:false,
-    		}]
-    	}
-    }
+	$( "#combobox" ).combobox({ 
+        select: function (event, ui) { 
+          //alert($(this).val());
+          var stationId = $(this).val();
+          //alert(stationId);
+          var authorization = "Bearer "+ $.cookie('token');
+          getTodaysDaysData(stationId, authorization);
+          //load today
+         
+          
+        }
+  });
+  $( "#toggle" ).on( "click", function() {
+    $( "#combobox" ).toggle();
+  });
 
-	var revenueChart = new Chart(barChart, {
-	    type: 'horizontalBar',
-	    data: data,
-	    options: options
-	});
+	var company = JSON.parse($.cookie('company'));
+	//console.log(company["C36172EF-A9E2-490F-A83C-8DC0091EEF3B"].stations);
 
-	//revenue line chart
-	var revenueLineChart = $('#revenue').get(0).getContext('2d');
+	function getCompanyId() {
+		$.each(company, function(id, companyObject) {
+			//console.log(id);
+			return id;
+		});
+	}
 
-	var data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        datasets: [
-	        {
-	            label: 'Monthly Comparism',
-	            data: [12, 19, 3, 5, 2, 3],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(75, 192, 192, 0.4)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [5],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        },
-	        {
-	            label: 'Monthly Comparism',
-	            data: [10, 17, 5, 4, 6, 2],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(255, 99, 132, 0.2)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(220,220,220,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        }
-        ]
-    };
+	var companyId = getCompanyId();
+	//console.log(getCompanyId());
 
-    var options = {
-    	scales: {
-    		yAxes: [{
-    			display: true,
-    			ticks: {}
-    		}],
-    		xAxes: [{
-    			display:false,
-    		}]
-    	}
-    }
+	var checkRole = function() {
+		if ($.cookie('role') == "Administrator") {
+			return true;
+			//$(#stations).on('change', function() {
 
-	var revenue = new Chart(revenueLineChart, {
-	    type: 'line',
-	    data: data,
-	    options: options
-	});
+			//});
+		} //else {
+
+		//}
+	}
+
+	//get stations from cookie stations_names
+	var stationNames = function () {
+		var stations = $.cookie('stations_names');
+		//console.log(typeof JSON.parse(stations));
+		var company = JSON.parse($.cookie('company'));
+
+		$.each(company, function(id, companyObject) {
+			var stationArray = company[id].stations;
+			//console.log(stationArray);
+			stationArray.forEach(function(item){
+				//console.log(value);
+				$("#combobox").append('<option value=' + item.id + '>' + item.name + '</option>');
+			});
+		});
+
+		/**
+		$.each(stationArray, function(stationId, stationName) {
+			//console.log(value);
+			$("#stations").append('<option value=' + stationId + '>' + stationName + '</option>');
+		});
+		*/
+	}
+
 	
-	//revenue line chart
-	var supplyLineChart = $('#supply').get(0).getContext('2d');
+		//append list off stations to station selection input
+		stationNames();
 
-	var data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        datasets: [
-	        {
-	            label: 'Monthly Comparism',
-	            data: [12, 19, 3, 5, 2, 3],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(75, 192, 192, 0.4)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [5],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        },
-	        {
-	            label: 'Monthly Comparism',
-	            data: [10, 17, 5, 4, 6, 2],
-	            fill: false,
-	            lineTension: 0.1,
-	            backgroundColor:'rgba(255, 99, 132, 0.2)',
-	            borderColor:'rgba(75,192,192,1)',
-	            borderCapstyle: 'butt',
-	            borderDash: [],
-	            borderDashOffset: 0.0,
-	            borderJoinStyle: 'miter',
-	            pointBorderColor: "rgba(75,192,192,1)",
-	            pointBackgroundColor: "#ffffff",
-	            pointBorderWidth: 1,
-	            pointHoverRadius: 5,
-	            pointHoverBackgroundColor: "rgba(220,220,220,1)",
-	            pointBorderColor: 2,
-	            pointRadius: 1,
-	            pointHitRadius: 10,
-	        }
-        ]
-    };
+		
+			
+		//console.log('true');
+		//console.log($('select[name=selector]').val());
+		//console.log($('select#stations').val());
+		
+		//set parameters
+		var stationId = $(this).val();
+		console.log(stationId);
+		var content_type = "application/json";
+		var authorization = "Bearer "+ $.cookie('token');
 
-    var options = {
-    	scales: {
-    		yAxes: [{
-    			display: true,
-    			ticks: {}
-    		}],
-    		xAxes: [{
-    			display:false,
-    		}]
-    	}
-    }
-
-	var supply = new Chart(supplyLineChart, {
-	    type: 'line',
-	    data: data,
-	    options: options
-	});
-
-	//bar chart
-	var volSold = $('#volumeSold').get(0).getContext('2d');
-
-	var data = {
-        labels: ["Station, location", "Station, location", "Station, location", "Station, location", "Station, location", "Station, location"],
-        datasets: [
-	        {
-	            label: 'Monthly Comparism',
-	            backgroundColor: 'rgba(75, 192, 192, 0.4)',
-	            data: [12, 19, 3, 5, 2, 3],
-	        },
-	        /**
-	        {
-	            label: 'Monthly Comparism',
-	            data: [10, 17, 5, 4, 6, 2],
-	        }
-	        */
-        ]
-    };
-
-    var options = {
-    	scales: {
-    		yAxes: [{
-    			display: true,
-    			ticks: {}
-    		}],
-    		xAxes: [{
-    			display:false,
-    		}]
-    	}
-    }
-
-	var volumeSold = new Chart(volSold, {
-	    type: 'horizontalBar',
-	    data: data,
-	    options: options
-	});
+		//request for today's data
+		
 
 });
+
+
+
+
+
+
+ 
